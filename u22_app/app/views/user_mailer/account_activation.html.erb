@@ -1,0 +1,9 @@
+<p><%= @user.name %>様</p>
+
+<p>
+下記のリンクをクリックしてください。
+クリックするとアカウント登録が完成します。
+</p>
+
+<%= link_to "Activate", "https://ozoz.wjg.jp/account_activations/#{@user.activation_token}/edit?email=#{CGI.escape(@user.email)}" %>
+

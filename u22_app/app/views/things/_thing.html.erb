@@ -1,0 +1,44 @@
+<table>
+  <caption class="icon-image-user-name">
+    <%= link_to user_path(thing.user) do %>
+    <span class="mini-icon-image">
+      <%= image_tag thing.user.display_image2 if thing.user.image.attached? %>
+    </span>
+    <span><%= user_name_print_thing(thing.user.user_name) %></span>
+    <% end %>
+  </caption>
+
+  <tr>
+    <td>
+    <%= link_to  thing_path(thing) do%>
+      <%= image_tag thing.display_image if thing.thingImage.attached? %>
+    <% end%>
+    </td>
+  </tr>
+  <tr>
+    <td class="star-rating star-heart">
+      <!--評価-->
+      <p class="star-rating-front rate rate<%= thing.thing_assessment%>"></p>
+      <!--いいね-->
+      <span id="thing-<%= thing.id %>">
+      <%= render "likes/like", thing: thing %>
+      </span>
+      <!--keep-->
+      <span id="thing-keep-<%= thing.id %>">
+      <%= render "keeps/keep", thing: thing %>
+      </span>
+      </td>
+  <tr>
+
+  <tr>
+    <th>
+      <% if current_user?(@now_user) %>
+      <%= link_to "削除", thing, method: :delete , data: { confirm: "本当に削除しますか？" } %>
+      <% end %>
+      <% if current_user?(@now_user) %>
+      <%= link_to "編集", edit_thing_path(thing)%>
+      <% end %>
+    </th>
+  </tr>
+</table>
+<br>

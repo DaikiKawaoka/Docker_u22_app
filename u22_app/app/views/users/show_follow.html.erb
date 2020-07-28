@@ -1,0 +1,27 @@
+
+  <h1 class="follow-user-name-h1"><%= @user.user_name %></h1>
+  <div class="follow-show">
+    <h3 class="follow-midasi"><%= @follow %> </h3>
+    <% if @users.any? %>
+        <div class="follow-div">
+          <% @users.each do |user| %>
+            <div class="follow-user-div">
+              <div class="follow-user-div-header">
+                <%= link_to  "/users/#{user.id}" do %>
+                  <div class="follow-user-div-user">
+                    <span class="follow-profile-image">
+                      <%=follow_image_show(user)%>
+                    </span>
+                    <div>
+                      <p><%= user.name %></p>
+                      <p class="follow-user-name"><%= user.user_name %></p>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+              <p class="follow-profile-comment"><%= user.user_comment%></p>
+            </div>
+          <% end %>
+      </div>
+    <% end %>
+  </div>

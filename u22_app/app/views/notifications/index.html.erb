@@ -1,0 +1,25 @@
+<% if @notifications.exists? %>
+    <div class="notification_all">
+    <div class="notification_top">
+      <h1 class="top_content">お知らせ</h1>
+      <div class="gomi-div">
+        <%= link_to "/notifications/destroy_all", method: :delete do %>
+          <i class="fas fa-trash" style="color: black;"></i>
+          <h6 style="color: black;">全て削除</h6>
+        <% end %>
+      </div>
+    </div>
+    <div class="notification_main">
+      <%= render @notifications %>
+    </div>
+  </div>
+<% else %>
+  <div class="notification_all">
+    <div class="notification_top">
+      <h1 class="top_content">お知らせ</h1>
+    </div>
+    <div class="notification_main_null">
+      <h3>現在通知はございません。</h3>
+    </div>
+  </div>
+<% end %>

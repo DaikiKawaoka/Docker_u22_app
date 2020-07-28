@@ -1,0 +1,5 @@
+<%= @user.name %>様,
+
+下記のリンクを押してください。
+
+<%= link_to "Activate", "https://ozoz.wjg.jp/account_activation/#{@user.activation_token}/edit?email=#{CGI.escape(@user.email)}" %>
